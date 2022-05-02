@@ -1,0 +1,17 @@
+﻿@model int
+
+@{
+    ViewData["Title"] = "Pas trouve";
+    ViewBag.SousTitre = $"Pas trouve";
+}
+@section menuPage
+{
+    <a href="/Trainer/Index">Liste des trainers</a>
+    <a href="/Trainer/Create">Ajouter un trainers</a>
+   
+}
+
+<div style="color:red">
+    <p>Ce @Model n'existe pas</p>
+</div>
+
