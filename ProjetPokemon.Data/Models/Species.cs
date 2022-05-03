@@ -13,6 +13,11 @@ namespace ProjetPokemon.Data.Models
 
         public string SpeciesName { get; set;}
 
+        public Species(string speciesName)
+        {
+            this.SpeciesName = speciesName;
+        }
+
 
         public Species(string speciesName, ElementType type1)
         {

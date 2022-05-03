@@ -35,8 +35,7 @@ namespace ProjetPokemon.Tests
             //Arrange
             ISourceDonneesPokemon source = new DonneesPokemonSQL(db);
 
-            ElementType t = new ElementType("Water");
-            Species s = new Species("Blastoise", t);
+            Species s = new Species("Blastoise");
             var p = new Pokemon(s);
 
             //Act
