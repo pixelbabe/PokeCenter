@@ -16,30 +16,47 @@ namespace ProjetPokemon.Data.Service
         {
             this.db = db;
         }
-        public void Add(Pokemon addPokemon)
-        {
-            db.Pokemons.Add(addPokemon);
-            db.SaveChanges();
-        }
-
-        public bool Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Pokemon Get(int id)
-        {
-            throw new NotImplementedException();
-        }
 
         public IEnumerable<Pokemon> GetAll()
         {
             return db.Pokemons;
         }
 
-        public bool Update(Pokemon updatePokemon)
+        public void Add(Pokemon newPokemon)
         {
-            throw new NotImplementedException();
+            db.Pokemons.Add(newPokemon);
+            db.SaveChanges();
+        }
+
+        public bool Delete(int id)
+        {
+            var currentPkmn = Get(id);
+            if (currentPkmn != null)
+            {
+                db.Pokemons.Remove(currentPkmn);
+                db.SaveChanges();
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public Pokemon Get(int id)
+        {
+            return db.Pokemons.Find(id);
+        }
+
+        public bool Update(Pokemon updatedPokemon)
+        {
+            var currentPkmn = Get(updatedPokemon.Id);
+            if (currentPkmn != null)
+            {
+                currentPkmn.Nickname = updatedPokemon.Nickname;
+                db.SaveChanges();
+                return true;
+            }
+            else
+                return false;
         }
     }
 }

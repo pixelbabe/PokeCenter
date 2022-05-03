@@ -28,6 +28,8 @@ namespace ProjetPokemon.Data.Models
      
         public List<ElementType> ElementTypes { get; set; }
 
+        public List<Pokemon> Pokemons { get; set; }
+
 
         public string DisplayElementType()
         {

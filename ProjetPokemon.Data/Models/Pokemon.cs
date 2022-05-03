@@ -44,12 +44,20 @@ namespace ProjetPokemon.Data.Models
 
         public bool Equals(Pokemon other)
         {
-            throw new NotImplementedException();
+            if (other == null)
+                return false;
+            return Id.Equals(other.Id);
         }
 
+
+        //TODO: Implementer ca avec trainer
         public int CompareTo(Pokemon other)
         {
-            throw new NotImplementedException();
+            if (other == null) return -1;
+
+            int result = Nickname.CompareTo(other.Nickname);
+           
+            return result;
         }
     }
 }

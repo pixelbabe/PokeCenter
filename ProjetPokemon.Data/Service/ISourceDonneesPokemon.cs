@@ -13,9 +13,8 @@ namespace ProjetPokemon.Data.Service
 
         Pokemon Get(int id);
 
-        void Add(Pokemon addPokemon);
-        bool Update(Pokemon updatePokemon);
-
+        void Add(Pokemon addedPokemon);
+        bool Update(Pokemon updatedPokemon);
         bool Delete(int id);
 
     }
