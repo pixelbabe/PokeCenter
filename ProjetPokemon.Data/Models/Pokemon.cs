@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjetPokemon.Data.Models
 {
-    class Pokemon 
+    public class Pokemon : IEquatable<Pokemon>, IComparable<Pokemon>
     {
+        public int Id { get; set; }
         public string Name
         {
             get {
@@ -35,9 +36,14 @@ namespace ProjetPokemon.Data.Models
             this.Species = species;
         }
 
+        public bool Equals(Pokemon other)
+        {
+            throw new NotImplementedException();
+        }
 
-
-
-
+        public int CompareTo(Pokemon other)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

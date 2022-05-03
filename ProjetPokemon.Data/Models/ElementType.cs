@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ProjetPokemon.Data.Models
 {
-    class ElementType
+    public class ElementType
     {
 
         public int Id { get; set; }
 
-        public string Name { get; }
+        public string Name { get; set; }
 
         public ElementType (string name)
         {

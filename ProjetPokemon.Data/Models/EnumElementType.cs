@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetPokemon.Data.Models
 {
-    enum EnumElementType
+    public enum EnumElementType
     {
         Bug,
         Dark,
