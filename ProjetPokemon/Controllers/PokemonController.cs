@@ -16,5 +16,15 @@ namespace ProjetPokemon.Web.Controllers
         {
             return View(source.GetAll());
         }
+
+
+        public IActionResult Details(int id)
+        {
+            Pokemon pkmnTrouve = source.Get(id);
+            if (pkmnTrouve == null)
+                return View("PasTrouvé", id);
+            else
+                return View(pkmnTrouve);
+        }
     }
 }

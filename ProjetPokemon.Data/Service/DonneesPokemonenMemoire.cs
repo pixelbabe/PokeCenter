@@ -62,7 +62,7 @@ namespace ProjetPokemon.Data.Service
 
         public Pokemon Get(int id)
         {
-            throw new NotImplementedException();
+            return pokemons.Find(p => p.Id == id);
         }
 
         public bool Update(Pokemon updatePokemon)

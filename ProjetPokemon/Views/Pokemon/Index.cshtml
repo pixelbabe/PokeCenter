@@ -14,23 +14,19 @@
 <div>
     <table>
         <tr>
-            <th>Id</th>
-            <th>Nom</th>
-            <th>Nickname</th>
-            <th>Type</th>
-
+            <th>Pokemon</th>
+            <th>Trainer</th>
         </tr>
         @foreach (var pkmn in Model)
         {
     <tr>
-        <td>@pkmn.Id</td>
-        <td>@pkmn.Species.SpeciesName</td>
         <td>@pkmn.Name</td>
-        <td>@pkmn.Species.DisplayElementType()</td>
+        <td>Trainer 1</td>
+
         <td>
-            <a href="/Trainer/Details/@pkmn.Id">Détailler</a>
-            <a href="/Trainer/Edit/@pkmn.Id">Modifier</a>
-            <a href="/Trainer/Delete/@pkmn.Id">Supprimer</a>
+            <a href="/Pokemon/Details/@pkmn.Id">Détailler</a>
+            <a href="/Pokemon/Edit/@pkmn.Id">Modifier</a>
+            <a href="/Pokemon/Delete/@pkmn.Id">Supprimer</a>
         </td>
     </tr>
         }

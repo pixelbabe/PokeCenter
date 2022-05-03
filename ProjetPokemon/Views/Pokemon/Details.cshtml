@@ -1,0 +1,34 @@
+﻿@model ProjetPokemon.Data.Models.Pokemon
+@{
+    ViewBag.Title = "Details";
+    ViewBag.SousTitre = "Details pkmn ";
+}
+@section menuPage
+{
+
+
+}
+<div>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Nickname</th>
+            <th>Type</th>
+
+        </tr>
+  
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.Species.SpeciesName</td>
+                <td>@Model.Name</td>
+                <td>@Model.Species.DisplayElementType()</td>
+
+            </tr>
+        
+    </table>
+</div>
+@section footerdeLaPage
+{
+    <div>Le Footer</div>
+}
