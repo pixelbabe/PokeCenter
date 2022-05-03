@@ -18,24 +18,12 @@ namespace ProjetPokemon.Data.Models
             this.SpeciesName = speciesName;
         }
 
+        public Species(string speciesName, List<ElementType> elementTypes)
+        {
+            this.SpeciesName = speciesName;
+            this.ElementTypes = elementTypes;
+        }
 
-        public Species(string speciesName, ElementType type1)
-        {
-            this.SpeciesName = speciesName;
-            this.ElementTypes = new List<ElementType>
-            {
-                type1
-            };
-        }
-        public Species(string speciesName, ElementType type1, ElementType type2)
-        {
-            this.SpeciesName = speciesName;
-            this.ElementTypes = new List<ElementType>
-            {
-                type1,
-                type2
-            };
-        }
 
      
         public List<ElementType> ElementTypes { get; set; }

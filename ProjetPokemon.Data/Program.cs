@@ -1,5 +1,6 @@
 ﻿using ProjetPokemon.Data.Models;
 using System;
+using System.Collections.Generic;
 
 namespace ProjetPokemon.Data
 {
@@ -19,8 +20,21 @@ namespace ProjetPokemon.Data
             ElementType t1 = new ElementType(Enum.GetName(typeof(EnumElementType), EnumElementType.Flying));
             ElementType t2 = new ElementType("Water");
 
-            Species s1 = new Species("Blastoise", t2);
-            Species s2 = new Species("Gyarados", t1, t2);
+
+            List<ElementType> elementList1 = new List<ElementType>
+            {
+                t2
+            };
+
+
+            List<ElementType> elementList2 = new List<ElementType> 
+            {
+                t1, t2
+            };
+        
+
+            Species s1 = new Species("Blastoise", elementList1);
+            Species s2 = new Species("Gyarados", elementList2);
            
             Pokemon p1 = new Pokemon(s1);
             Pokemon p2 = new Pokemon(s2);

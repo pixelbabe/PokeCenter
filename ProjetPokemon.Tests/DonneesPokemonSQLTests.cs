@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using ProjetPokemon.Data.Service;
 using ProjetPokemon.Data.Models;
 using System;
+using System.Collections.Generic;
 
 namespace ProjetPokemon.Tests
 {
@@ -35,7 +36,17 @@ namespace ProjetPokemon.Tests
             //Arrange
             ISourceDonneesPokemon source = new DonneesPokemonSQL(db);
 
-            Species s = new Species("Blastoise");
+            ElementType t1 = new ElementType(Enum.GetName(typeof(EnumElementType), EnumElementType.Flying));
+            ElementType t2 = new ElementType("Water");
+
+            List<ElementType> elementList = new List<ElementType>
+            {
+                t1, t2
+            };
+
+
+
+            Species s = new Species("Blastoise", elementList);
             var p = new Pokemon(s);
 
             //Act
