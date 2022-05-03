@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProjetPokemon.Data.Models
 {
-    class Pokemon
+    class Pokemon 
     {
-
-        public int Id { get; set; }
-
         public string Name
         {
             get {
@@ -19,19 +16,27 @@ namespace ProjetPokemon.Data.Models
                     return this.Nickname;
                 } else
                 {
-                    return Enum.GetName(typeof(Species), this.Species);
+                    return this.Species.SpeciesName;
                 }
 
             } 
         }
 
         public Species Species { get; set; }
+
         public string Nickname { get; set; }
+
+        public Pokemon()
+        {  
+        }
 
         public Pokemon(Species species)
         {
             this.Species = species;
         }
+
+
+
 
 
     }
