@@ -6,6 +6,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using ProjetPokemon.Data.Service;
 using ProjetPokemon.Data.Models;
+using ProjetPokemon.Data.Data;
 using System;
 using System.Collections.Generic;
 
@@ -43,7 +44,6 @@ namespace ProjetPokemon.Tests
             {
                 t1, t2
             };
-
 
 
             Species s = new Species("Blastoise", elementList);

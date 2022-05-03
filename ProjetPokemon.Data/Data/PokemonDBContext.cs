@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ProjetPokemon.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ProjetPokemon.Data
+namespace ProjetPokemon.Data.Data
 {
     public class PokemonDBContext : DbContext
     {
@@ -14,9 +14,7 @@ namespace ProjetPokemon.Data
 
         public PokemonDBContext(string connexion)
         {
-
             _connexionString = connexion;
-
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

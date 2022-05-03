@@ -9,6 +9,7 @@ namespace ProjetPokemon.Data.Models
     public class Pokemon : IEquatable<Pokemon>, IComparable<Pokemon>
     {
         public int Id { get; set; }
+
         public string Name
         {
             get {
@@ -31,6 +32,11 @@ namespace ProjetPokemon.Data.Models
         {  
         }
 
+        public Pokemon(int id, Species species)
+        {
+            this.Id = id;
+            this.Species = species;
+        }
         public Pokemon(Species species)
         {
             this.Species = species;

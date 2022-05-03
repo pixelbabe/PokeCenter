@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ProjetPokemon.Data.Models.Pokemon>
+@{
+    ViewBag.Title = "Index Pokemon";
+    ViewBag.SousTitre = "Pokémons";
+}
+@section menuPage
+{
+    <a href="/Pokemon/Index">Liste des Pokémons</a>
+    <a href="/Pokemon/Create">Ajouter un Pokemon</a>
+    <a href="/Pokemon/Delete">Ajouter un Pokemon</a>
+    <a href="/Pokemon/Details">Details Pokemon</a>
+
+}
+<div>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Nickname</th>
+            <th>Type</th>
+
+        </tr>
+        @foreach (var pkmn in Model)
+        {
+    <tr>
+        <td>@pkmn.Id</td>
+        <td>@pkmn.Species.SpeciesName</td>
+        <td>@pkmn.Name</td>
+        <td>@pkmn.Species.DisplayElementType()</td>
+        <td>
+            <a href="/Trainer/Details/@pkmn.Id">Détailler</a>
+            <a href="/Trainer/Edit/@pkmn.Id">Modifier</a>
+            <a href="/Trainer/Delete/@pkmn.Id">Supprimer</a>
+        </td>
+    </tr>
+        }
+    </table>
+</div>
+@section footerdeLaPage
+{
+    <div>Le Footer</div>
+}

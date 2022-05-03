@@ -1,4 +1,5 @@
 ﻿using ProjetPokemon.Data.Models;
+using ProjetPokemon.Data.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,6 @@ namespace ProjetPokemon.Data.Service
 {
     public class DonneesPokemonSQL : ISourceDonneesPokemon
     {
-
         private readonly PokemonDBContext db;
 
         public DonneesPokemonSQL(PokemonDBContext db)
@@ -34,7 +34,7 @@ namespace ProjetPokemon.Data.Service
 
         public IEnumerable<Pokemon> GetAll()
         {
-            throw new NotImplementedException();
+            return db.Pokemons;
         }
 
         public bool Update(Pokemon updatePokemon)
