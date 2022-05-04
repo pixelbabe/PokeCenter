@@ -15,28 +15,12 @@ namespace ProjetPokemon.Data.Service
         {
 
 
-            ElementType t1 = new ElementType(Enum.GetName(typeof(EnumElementType), EnumElementType.Flying));
-            ElementType t2 = new ElementType(Enum.GetName(typeof(EnumElementType), EnumElementType.Water));
 
-            List<ElementType> elementList1 = new List<ElementType>
-                {
-                    t2
-                };
-
-            List<ElementType> elementList2 = new List<ElementType>
-                {
-                    t1, t2
-                };
-
-
-            Species s1 = new Species("Blastoise", elementList1);
-            Species s2 = new Species("Gyarados", elementList2);
-
-            Pokemon p1 = new Pokemon(1, s1);
-            Pokemon p2 = new Pokemon(2, s2);
-            Pokemon p3 = new Pokemon(3, s2);
+            Pokemon p1 = new Pokemon(1, Species.Blastoise, ElementType.Water);
+            Pokemon p2 = new Pokemon(2, Species.Pikachu, ElementType.Electric);
+            Pokemon p3 = new Pokemon(3, Species.Charizard);
             
-            p2.Nickname = "johnny";
+            p2.Nickname = "PikaPika";
             
             pokemons = new List<Pokemon>
             {

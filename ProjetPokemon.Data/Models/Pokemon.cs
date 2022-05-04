@@ -18,7 +18,7 @@ namespace ProjetPokemon.Data.Models
                     return this.Nickname;
                 } else
                 {
-                    return this.Species.SpeciesName;
+                    return Enum.GetName(typeof(Species), this.Species);
                 }
 
             } 
@@ -26,10 +26,13 @@ namespace ProjetPokemon.Data.Models
 
         public Species Species { get; set; }
 
+        public ElementType ElementType { get; set; }
+
         public string Nickname { get; set; }
 
+
         public Pokemon()
-        {  
+        {
         }
 
         public Pokemon(int id, Species species)
@@ -37,10 +40,20 @@ namespace ProjetPokemon.Data.Models
             this.Id = id;
             this.Species = species;
         }
+
+
+        public Pokemon(int id, Species species, ElementType elementType)
+        {
+            this.Id = id;
+            this.Species = species;
+            this.ElementType = elementType;
+        }
+
         public Pokemon(Species species)
         {
             this.Species = species;
         }
+
 
         public bool Equals(Pokemon other)
         {

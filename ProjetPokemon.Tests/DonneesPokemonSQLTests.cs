@@ -45,17 +45,8 @@ namespace ProjetPokemon.Tests
 
             //Arrange
             ISourceDonneesPokemon source = new DonneesPokemonSQL(db);
-
-            ElementType t1 = new ElementType(Enum.GetName(typeof(EnumElementType), EnumElementType.Flying));
-            ElementType t2 = new ElementType("Water");
-
-            List<ElementType> elementList = new List<ElementType>
-            {
-                t1, t2
-            };
-
-            Species s = new Species("Blastoise", elementList);
-            var p = new Pokemon(s);
+       
+            var p = new Pokemon(Species.Squirtle);
 
             //Act
             source.Add(p);
@@ -75,29 +66,22 @@ namespace ProjetPokemon.Tests
             //Arrange
             ISourceDonneesPokemon source = new DonneesPokemonSQL(db);
 
-            ElementType t1 = new ElementType(Enum.GetName(typeof(EnumElementType), EnumElementType.Electric));
-
-            List<ElementType> elementList = new List<ElementType>
-            {
-                t1
-            };
-
-            var p = new Pokemon();
-
-            var s = new Species("Pikachu", elementList);
-            p.Species = s;
-
+            var p = new Pokemon(Species.Squirtle);
             source.Add(p);
+
+            p.ElementType = ElementType.Electric;
+
+
 
             //Act
             var actual = source.GetAll().First();
 
             //Assert
             Assert.IsTrue(actual.Id != 0);
-            Assert.IsTrue(actual.Species.Id != 0);
             Assert.IsTrue(actual == p);
-            Assert.IsTrue(actual.Species == s);
-            Assert.IsTrue(actual.Species.Pokemons.Contains(actual));
+            Assert.IsTrue(actual.Species == Species.Squirtle);
+            Assert.IsTrue(actual.ElementType == ElementType.Electric);
+
         }
 
         [TestMethod]
@@ -108,18 +92,7 @@ namespace ProjetPokemon.Tests
 
             //Arrange
             ISourceDonneesPokemon source = new DonneesPokemonSQL(db);
-
-            ElementType t1 = new ElementType(Enum.GetName(typeof(EnumElementType), EnumElementType.Flying));
-            ElementType t2 = new ElementType("Water");
-
-            List<ElementType> elementList = new List<ElementType>
-            {
-                t1, t2
-            };
-
-            Species s = new Species("Blastoise", elementList);
-           
-            var p = new Pokemon(s);
+            var p = new Pokemon(Species.Squirtle);
 
             //Act
             source.Add(p);
@@ -140,18 +113,8 @@ namespace ProjetPokemon.Tests
 
             //Arrange
             ISourceDonneesPokemon source = new DonneesPokemonSQL(db);
+            var p = new Pokemon(Species.Squirtle);
 
-            ElementType t1 = new ElementType(Enum.GetName(typeof(EnumElementType), EnumElementType.Flying));
-            ElementType t2 = new ElementType("Water");
-
-            List<ElementType> elementList = new List<ElementType>
-            {
-                t1, t2
-            };
-
-            Species s = new Species("Blastoise", elementList);
-
-            var p = new Pokemon(s);
 
             //Act
             source.Add(p);

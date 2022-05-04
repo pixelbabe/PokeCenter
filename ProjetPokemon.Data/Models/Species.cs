@@ -6,42 +6,19 @@ using System.Threading.Tasks;
 
 namespace ProjetPokemon.Data.Models
 {
-    public class Species
+    public enum Species
     {
-
-        public int Id { get; set; }
-
-        public string SpeciesName { get; set;}
-
-        public Species(string speciesName)
-        {
-            this.SpeciesName = speciesName;
-        }
-
-        public Species(string speciesName, List<ElementType> elementTypes)
-        {
-            this.SpeciesName = speciesName;
-            this.ElementTypes = elementTypes;
-        }
-
-
-     
-        public List<ElementType> ElementTypes { get; set; }
-
-        public List<Pokemon> Pokemons { get; set; }
-
-
-        public string DisplayElementType()
-        {
-
-            var str = "";
-            foreach (var element in ElementTypes)
-            {
-                str += element.Name + " ";
-
-            }
-            return $"{str}";
-        }
-
+        Bulbasaur, 
+        Ivysaur,
+        Venusaur,
+        Charmander,
+        Carmeleon,
+        Charizard,
+        Squirtle,
+        Wartortle,
+        Blastoise,
+        Pikachu,
+        Raichu,
+        Eevee
     }
 }

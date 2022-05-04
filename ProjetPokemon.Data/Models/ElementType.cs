@@ -6,20 +6,26 @@ using System.Threading.Tasks;
 
 namespace ProjetPokemon.Data.Models
 {
-    public class ElementType
+    public enum ElementType
     {
-
-        public int Id { get; set; }
-
-        public string Name { get; set; }
-
-        public ElementType (string name)
-        {
-            this.Name = name;
-        }
-
-        public List<Species> Species { get; set; }
-
-
+        Inconnu,
+        Bug,
+        Dark,
+        Dragon,
+        Electric,
+        Fairy,
+        Fight,
+        Fire,
+        Flying,
+        Ghost,
+        Grass,
+        Ground,
+        Ice,
+        Normal,
+        Poison,
+        Psychic,
+        Rock,
+        Steel,
+        Water
     }
 }

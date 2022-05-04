@@ -24,8 +24,6 @@ namespace ProjetPokemon.Data.Data
         }
 
         public DbSet<Pokemon> Pokemons { get; set; }
-        public DbSet<Species> Species { get; set; }
-        public DbSet<ElementType> ElementTypes { get; set; }
 
 
     }
