@@ -1,0 +1,46 @@
+﻿@model ProjetPokemon.Data.Models.Pokemon
+@{
+    ViewBag.Title = "Edit";
+    ViewBag.SousTitre = "Modifier le Pokémon";
+}
+
+<div>
+    <form action="/Pokemon/Edit" method="post">
+        <input name="Id" type="hidden" value=@Model.Id>
+        <table>
+
+            <tr>
+                <td>
+                    <label>Espèce:</label>
+                </td>
+
+                <td>@Model.Species</td>
+
+            </tr>
+            <tr>
+                <td>
+                    <label>Type de Pokémon:</label>
+                </td>
+                <td>
+                    @Html.DropDownList("ElementType", ViewBag.elementTypeEnumData as SelectList)
+                </td>
+            </tr>
+            <tr>
+                <td>Surnom:</td>
+                <td><input name="Nickname" type="text" value="@Model.Nickname" placeholder="Facultatif"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center">
+                    <input type="submit" value="Editer">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div style="color:red">
+        @ViewBag.MessageErreurs
+    </div>
+</div>
+@section footerdeLaPage
+{
+    <div><a href="/Pokemon/Index">Retour à la liste de pokemon</a></div>
+}

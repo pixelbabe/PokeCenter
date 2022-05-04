@@ -26,7 +26,6 @@ namespace ProjetPokemon.Web.Controllers
             return View();
         }
 
-
         [HttpPost]
         public IActionResult Create(Pokemon newPokemon)
         {
@@ -36,15 +35,8 @@ namespace ProjetPokemon.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                int maxId = 0;
-                foreach (var f in source.GetAll())
-                {
-                    if (f.Id > maxId)
-                    {
-                        maxId = f.Id;
-                    }
-                }
-                newPokemon.Id = maxId + 1;
+                
+                newPokemon.Id = getNextId();
 
                 foreach (var t in source.GetAll())
                 {
@@ -53,7 +45,7 @@ namespace ProjetPokemon.Web.Controllers
                         ViewBag.MessageErreurs = "Ce Pokémon existe déjà";
 
                         var pokemon = new Pokemon(newPokemon.Id, newPokemon.Species, newPokemon.ElementType);
-                        pokemon.Nickname = newPokemon.Nickname; 
+                        pokemon.Nickname = newPokemon.Nickname;
                         return View(pokemon);
                     }
                 }
@@ -76,6 +68,7 @@ namespace ProjetPokemon.Web.Controllers
             return View();
         }
 
+     
 
         public IActionResult Details(int id)
         {
@@ -86,6 +79,54 @@ namespace ProjetPokemon.Web.Controllers
                 return View(pkmnTrouve);
         }
 
+        public IActionResult Edit(int id)
+        {
+            populateSpeciesDropdown();
+            populateElementTypeDropdown();
+
+            Pokemon pkmnTrouve = source.Get(id);
+            if (pkmnTrouve == null)
+                return View("PasTrouvé", id);
+            else
+                return View(pkmnTrouve);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Pokemon pokemon)
+        {
+            if (ModelState.IsValid)
+            {
+                Pokemon p = source.Get(pokemon.Id);
+                if (p == null)
+                {
+                    return View("PasTrouve");
+                }
+
+                else
+                {
+
+                    p.Nickname = pokemon.Nickname;
+                    p.ElementType = pokemon.ElementType;
+
+                    source.Update(p);
+
+                    return RedirectToAction("Details", p);
+                }
+
+            }
+
+
+            ViewBag.MessageErreurs = "";
+            foreach (var v in ModelState)
+            {
+                foreach (var erreur in ModelState[v.Key].Errors)
+                {
+                    ViewBag.MessageErreurs += erreur.ErrorMessage;
+                }
+            }
+
+            return View(pokemon);
+        }
 
         private void populateElementTypeDropdown()
         {
@@ -109,6 +150,19 @@ namespace ProjetPokemon.Web.Controllers
                                   };
 
             ViewBag.speciesEnumData = new SelectList(speciesEnumData, "ID", "Name");
+        }
+        private int getNextId()
+        {
+            int maxId = 0;
+            foreach (var f in source.GetAll())
+            {
+                if (f.Id > maxId)
+                {
+                    maxId = f.Id;
+                }
+            }
+
+            return maxId + 1;
         }
     }
 }
