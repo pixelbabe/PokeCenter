@@ -1,9 +1,12 @@
 ﻿@model ProjetPokemon.Data.Models.Pokemon
 @{
     ViewBag.Title = "Details";
-    ViewBag.SousTitre ="Détails du pokemon " + Model.Name;
+    ViewBag.SousTitre = "Détails du pokemon " + Model.Name;
 }
-
+@section menuPage
+{
+    <a href="/Pokemon/Index">Liste des Pokémons</a>
+}
 <div>
     <table>
         <tr>
@@ -13,16 +16,20 @@
             <th>Type</th>
 
         </tr>
-  
-            <tr>
-                <td>@Model.Id</td>
-                <td>@Model.Species</td>
-                <td>@Model.Name</td>
-                <td>@Model.ElementType</td>
 
-            </tr>
-        
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.Species</td>
+            <td>@Model.Name</td>
+            <td>@Model.ElementType</td>
+
+        </tr>
+
     </table>
+
+    <div style="margin-top:20px">
+        <a href="/Pokemon/Edit/@Model.Id">Modifier</a>
+    </div>
 </div>
 @section footerdeLaPage
 {

@@ -29,8 +29,9 @@ namespace ProjetPokemon.Data.Models
 
         public ElementType ElementType { get; set; }
 
+        [RegularExpression("^[a-zA-Z0-9]*$", ErrorMessage = "Le surnom doit contenir seulement des caractères alphanumériques")]
         [StringLength(8, ErrorMessage = "Le surnom ne doit pas dépasser 8 caractères")]
-        public string Nickname { get; set; }
+        public string? Nickname { get; set; }
 
 
         public Pokemon()

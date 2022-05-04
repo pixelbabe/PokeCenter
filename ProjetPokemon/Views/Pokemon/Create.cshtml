@@ -3,7 +3,10 @@
     ViewBag.Title = "Create";
     ViewBag.SousTitre = "Ajouter un Pokémon";
 }
-
+@section menuPage
+{
+    <a href="/Pokemon/Index">Liste des Pokémons</a>
+}
 <div>
     <form action="/Pokemon/Create" method="post">
         <table>

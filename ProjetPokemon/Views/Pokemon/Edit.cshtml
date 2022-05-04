@@ -3,10 +3,15 @@
     ViewBag.Title = "Edit";
     ViewBag.SousTitre = "Modifier le Pokémon";
 }
-
+@section menuPage
+{
+    <a href="/Pokemon/Index">Liste des Pokémons</a>
+}
 <div>
     <form action="/Pokemon/Edit" method="post">
         <input name="Id" type="hidden" value=@Model.Id>
+        <input name="Species" type="hidden" value=@Model.Species>
+
         <table>
 
             <tr>

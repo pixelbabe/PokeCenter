@@ -74,7 +74,7 @@ namespace ProjetPokemon.Web.Controllers
         {
             Pokemon pkmnTrouve = source.Get(id);
             if (pkmnTrouve == null)
-                return View("PasTrouvé", id);
+                return View("PasTrouve", id);
             else
                 return View(pkmnTrouve);
         }
@@ -86,7 +86,7 @@ namespace ProjetPokemon.Web.Controllers
 
             Pokemon pkmnTrouve = source.Get(id);
             if (pkmnTrouve == null)
-                return View("PasTrouvé", id);
+                return View("PasTrouve", id);
             else
                 return View(pkmnTrouve);
         }
@@ -102,8 +102,9 @@ namespace ProjetPokemon.Web.Controllers
                     return View("PasTrouve");
                 }
 
-                else
-                {
+            else
+            {
+               
 
                     p.Nickname = pokemon.Nickname;
                     p.ElementType = pokemon.ElementType;
@@ -115,6 +116,8 @@ namespace ProjetPokemon.Web.Controllers
 
             }
 
+            populateSpeciesDropdown();
+            populateElementTypeDropdown();
 
             ViewBag.MessageErreurs = "";
             foreach (var v in ModelState)
@@ -126,6 +129,29 @@ namespace ProjetPokemon.Web.Controllers
             }
 
             return View(pokemon);
+        }
+
+
+        public ActionResult Delete(int id)
+        {
+            Pokemon pokemon = source.Get(id);
+            if (pokemon == null)
+                return View("PasTrouve", id);
+            else
+                return View(pokemon);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Pokemon pokemon = source.Get(id);
+      
+            if (pokemon != null && source.Delete(id))
+            {
+                return RedirectToAction("Index");
+            }
+            else
+                return View("PasTrouve", id);
         }
 
         private void populateElementTypeDropdown()

@@ -1,0 +1,19 @@
+﻿@model int
+
+@{
+    ViewData["Title"] = "Pas trouve";
+    ViewBag.SousTitre = $"Pas trouve";
+}
+
+
+<div style="color:red">
+    <p>L'identifiant @Model ne correspond à aucun Pokémon dans la liste!</p>
+</div>
+
+@section footerdeLaPage
+{
+    <p>
+        <a href="/Pokemon/Index">Retour à la liste des Pokemons</a>
+    </p>
+}
+

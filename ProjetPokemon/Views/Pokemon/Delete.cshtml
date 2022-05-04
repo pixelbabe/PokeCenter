@@ -1,0 +1,32 @@
+﻿@model ProjetPokemon.Data.Models.Pokemon
+@{
+    ViewBag.Title = "Delete";
+    ViewBag.SousTitre = "Confirmer la suppression de " + Model.Name;
+}
+@section menuPage
+{
+    <a href="/Pokemon/Index">Liste des Pokémons</a>
+}
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> @Model.Name</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form action="/Pokemon/Delete" method="post">
+        <input name="Id" type="hidden" value=@Model.Id>
+        <input type="submit" value="Confirmer">
+    </form>
+</div>
+@section footerdeLaPage
+{
+    <div><a href="/Pokemon/Index">Annuler</a></div>
+}
