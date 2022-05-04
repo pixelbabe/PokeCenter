@@ -1,0 +1,45 @@
+﻿@model ProjetPokemon.Data.Models.Pokemon
+@{
+    ViewBag.Title = "Create";
+    ViewBag.SousTitre = "Ajouter un Pokémon";
+}
+
+<div>
+    <form action="/Pokemon/Create" method="post">
+        <table>
+
+            <tr>
+                <td>
+                    <label>Espèce:</label>
+                </td>
+                <td>
+                    @Html.DropDownList("Species", ViewBag.speciesEnumData as SelectList)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Type de Pokémon:</label>
+                </td>
+                <td>
+                    @Html.DropDownList("ElementType", ViewBag.elementTypeEnumData as SelectList)
+                </td>
+            </tr>
+            <tr>
+                <td>Surnom:</td>
+                <td><input name="Nickname" type="text" value="" placeholder="Facultatif"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center">
+                    <input type="submit" value="Ajouter">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div style="color:red">
+        @ViewBag.MessageErreurs
+    </div>
+</div>
+@section footerdeLaPage
+{
+    <div><a href="/Pokemon/Index">Retour à la liste de pokemon</a></div>
+}

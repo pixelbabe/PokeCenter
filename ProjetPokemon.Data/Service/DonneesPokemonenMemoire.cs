@@ -13,9 +13,6 @@ namespace ProjetPokemon.Data.Service
 
         public DonneesPokemonenMemoire()
         {
-
-
-
             Pokemon p1 = new Pokemon(1, Species.Blastoise, ElementType.Water);
             Pokemon p2 = new Pokemon(2, Species.Pikachu, ElementType.Electric);
             Pokemon p3 = new Pokemon(3, Species.Charizard);
@@ -34,14 +31,21 @@ namespace ProjetPokemon.Data.Service
             return pokemons.OrderBy(p => p.Name);
         }
 
-        public void Add(Pokemon addPokemon)
+        public void Add(Pokemon newPokemon)
         {
-            throw new NotImplementedException();
+            pokemons.Add(newPokemon);
         }
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            var currentPkmn = Get(id);
+            if (currentPkmn != null)
+            {
+                pokemons.Remove(currentPkmn);
+                return true;
+            }
+            else
+                return false;
         }
 
         public Pokemon Get(int id)
@@ -49,9 +53,16 @@ namespace ProjetPokemon.Data.Service
             return pokemons.Find(p => p.Id == id);
         }
 
-        public bool Update(Pokemon updatePokemon)
+        public bool Update(Pokemon updatedPokemon)
         {
-            throw new NotImplementedException();
+            var currentPkmn = Get(updatedPokemon.Id);
+            if (currentPkmn != null)
+            {
+                currentPkmn.Nickname = updatedPokemon.Nickname;
+                return true;
+            }
+            else
+                return false;
         }
     }
 }

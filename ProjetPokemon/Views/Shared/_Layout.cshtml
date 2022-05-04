@@ -10,8 +10,13 @@
     <header><h1>Pokemon Academy</h1></header>
     <p>Cree par Joshua(Pour le moment)</p>
     <hr />
+    <a href="/Home/Index">Home</a>
+    <a href="/Trainer/Index">Trainers</a>
+    <a href="/Pokemon/Index">Pokemons</a>
+    <a href="/PokeCenter/Index">PokeCenter</a>
+    <hr />
     <div>
-        @RenderSection("menuPage", required: true)
+        @RenderSection("menuPage", required: false)
     </div>
     <hr />
     <h2>@ViewBag.SousTitre</h2>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,7 @@ namespace ProjetPokemon.Data.Models
 
         public ElementType ElementType { get; set; }
 
+        [StringLength(8, ErrorMessage = "Le surnom ne doit pas dépasser 8 caractères")]
         public string Nickname { get; set; }
 
 

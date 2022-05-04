@@ -1,19 +1,15 @@
 ﻿@model ProjetPokemon.Data.Models.Pokemon
 @{
     ViewBag.Title = "Details";
-    ViewBag.SousTitre = "Details pkmn ";
+    ViewBag.SousTitre ="Détails du pokemon " + Model.Name;
 }
-@section menuPage
-{
 
-
-}
 <div>
     <table>
         <tr>
             <th>Id</th>
+            <th>Espèce</th>
             <th>Nom</th>
-            <th>Nickname</th>
             <th>Type</th>
 
         </tr>
@@ -30,5 +26,5 @@
 </div>
 @section footerdeLaPage
 {
-    <div>Le Footer</div>
+    <div><a href="/Pokemon/Index">Retour à la liste de Pokémons</a></div>
 }

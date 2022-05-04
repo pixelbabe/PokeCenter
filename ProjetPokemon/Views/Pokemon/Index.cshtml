@@ -1,15 +1,11 @@
 ﻿@model IEnumerable<ProjetPokemon.Data.Models.Pokemon>
 @{
     ViewBag.Title = "Index Pokemon";
-    ViewBag.SousTitre = "Pokémons";
+    ViewBag.SousTitre = "Liste de tous les Pokémons";
 }
 @section menuPage
 {
     <a href="/Pokemon/Index">Liste des Pokémons</a>
-    <a href="/Pokemon/Create">Ajouter un Pokemon</a>
-    <a href="/Pokemon/Delete">Ajouter un Pokemon</a>
-    <a href="/Pokemon/Details">Details Pokemon</a>
-
 }
 <div>
     <table>
@@ -19,20 +15,22 @@
         </tr>
         @foreach (var pkmn in Model)
         {
-    <tr>
-        <td>@pkmn.Name</td>
-        <td>Trainer 1</td>
+            <tr>
+                <td>@pkmn.Name</td>
+                <td>Trainer 1</td>
 
-        <td>
-            <a href="/Pokemon/Details/@pkmn.Id">Détailler</a>
-            <a href="/Pokemon/Edit/@pkmn.Id">Modifier</a>
-            <a href="/Pokemon/Delete/@pkmn.Id">Supprimer</a>
-        </td>
-    </tr>
+                <td>
+                    <a href="/Pokemon/Details/@pkmn.Id">Détailler</a>
+                    <a href="/Pokemon/Edit/@pkmn.Id">Modifier</a>
+                    <a href="/Pokemon/Delete/@pkmn.Id">Supprimer</a>
+                </td>
+            </tr>
         }
     </table>
+
+    <div style="margin-top:40px">
+        <a href="/Pokemon/Create">Ajouter un Pokemon</a>
+    </div>
+    
 </div>
-@section footerdeLaPage
-{
-    <div>Le Footer</div>
-}
+
